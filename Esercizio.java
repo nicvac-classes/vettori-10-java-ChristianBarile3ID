@@ -1,26 +1,38 @@
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
-
-//Import di Classi Java necessarie al funzionamento del programma
 import java.util.Scanner;
 
-// Classe principale, con metodo main
 class Esercizio {
-    // Il programma parte con una chiamata a main().
+
     public static void main(String args[])
     {
-        //Variabili del programma
-        String nome;
-
-        //Creo l'oggetto in per l'input da tastiera
         Scanner in = new Scanner( System.in );
-
-        //Leggo l'input da tastiera
-        System.out.print("Inserisci il tuo nome: ");
-        nome = in.nextLine();
-
-        //Output del nome acquisito da tastiera
-        System.out.println("Ciao "+nome+"!");
+        int i, studenti;
+        float sommaVotazioni, mediaVotazioni;
+        do {
+            System.out.println("Inserisci il numero di studenti: ");
+            studenti = in.nextInt();
+        } while (studenti<0);
+        String [] nomi = new String [studenti];
+        float [] votazioni = new Float [studenti];
+        int [] crediti = new int [studenti];
+        sommaVotazioni = 0;
+        i = 0;
+        while (i<studenti) {
+            System.out.println("Inserisci il nome dello studente n°" + i+1 + ":");
+            nomi[i] = in.next();
+            System.out.println("Inserisci la sua votazione: ");
+            votazioni[i] = in.nextFloat();
+            System.out.println("Inserisci il numero dei suoi crediti: ");
+            crediti[i] = in.nextInt();
+            sommaVotazioni += votazioni[i];
+            i++;
+        }
+        mediaVotazioni = sommaVotazioni/studenti;
+        System.out.println("La media delle votazioni degli studenti è: " + mediaVotazioni);
+        i = 0;
+        while (i<studenti) {
+            if (mediaVotazioni<votazioni[i] && crediti[i]>=6) {
+                System.out.println("Lo studente " + nomi[i] + " finisce l'anno con una valutazione pari a " + votazioni[i] + " e con " + crediti[i] + "crediti");
+            }
+        }
     }
 }
-
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
