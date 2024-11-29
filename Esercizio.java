@@ -26,12 +26,18 @@ class Esercizio {
             sommaVotazioni += votazioni[i];
             i++;
         }
+        i = 0;
+        while (i<studenti) {
+            System.out.println("Lo studente " + nomi[i] + " finisce l'anno con una valutazione pari a " + votazioni[i] + " e con " + crediti[i] + "crediti");
+            i++
+        }
         mediaVotazioni = sommaVotazioni/studenti;
         System.out.println("La media delle votazioni degli studenti è: " + mediaVotazioni);
         i = 0;
         while (i<studenti) {
             if (mediaVotazioni<votazioni[i] && crediti[i]>=6) {
-                System.out.println("Lo studente " + nomi[i] + " finisce l'anno con una valutazione pari a " + votazioni[i] + " e con " + crediti[i] + "crediti");
+                System.out.println("Lo studente " + nomi[i] + " finisce l'anno con una valutazione pari a " + votazioni[i] + " e con " + crediti[i] + " crediti");
+                i++;
             }
         }
     }
